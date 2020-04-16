@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-zii-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kube-zii-app
+  template:
+    metadata:
+      labels:
+        app: kube-zii-app
+    spec:
+      containers:
+        - name: kube-zii-app
+          image: liar233/service_zii:0.0.1
+          ports:
+            - containerPort: 80
+              protocol: TCP
